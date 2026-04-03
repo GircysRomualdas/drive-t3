@@ -1,3 +1,5 @@
+import "server-only";
+
 import {
   int,
   text,
@@ -10,7 +12,7 @@ export const createTable = singlestoreTableCreator(
   (name) => `drive-t3_${name}`,
 );
 
-export const files_table = createTable(
+export const files = createTable(
   "files_table",
   {
     id: bigint("id", { mode: "number", unsigned: true })
@@ -26,7 +28,7 @@ export const files_table = createTable(
   },
 );
 
-export const folders_table = createTable(
+export const folders = createTable(
   "folders_table",
   {
     id: bigint("id", { mode: "number", unsigned: true })
