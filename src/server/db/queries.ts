@@ -38,3 +38,16 @@ export const QUERIES = {
     return db.select().from(fileSchema).where(eq(fileSchema.parent, folderId));
   },
 };
+
+export const MUTATIONS = {
+  createFile: async function (input: {
+    file: {
+      name: string;
+      size: number;
+      url: string;
+    };
+    userId: string;
+  }) {
+    return await db.insert(fileSchema).values({ ...input.file, parent: 1 });
+  },
+};
