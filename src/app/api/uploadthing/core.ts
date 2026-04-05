@@ -10,10 +10,10 @@ import { z } from "zod";
 const f = createUploadthing();
 
 export const ourFileRouter = {
-  imageUploader: f({
-    image: {
-      maxFileSize: "4MB",
-      maxFileCount: 1,
+  driveUploader: f({
+    blob: {
+      maxFileSize: "1GB",
+      maxFileCount: 9999,
     },
   })
     .input(
