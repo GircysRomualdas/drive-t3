@@ -3,6 +3,7 @@ import "~/styles/globals.css";
 import { type Metadata } from "next";
 import { Geist } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
+import { PostHogProvider } from "./_providers/posthog-provider";
 
 export const metadata: Metadata = {
   title: "Drive T3",
@@ -20,9 +21,11 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <ClerkProvider>
-      <html lang="en" className={`${geist.variable}`}>
-        <body>{children}</body>
-      </html>
+      <PostHogProvider>
+        <html lang="en" className={`${geist.variable}`}>
+          <body>{children}</body>
+        </html>
+      </PostHogProvider>
     </ClerkProvider>
   );
 }
